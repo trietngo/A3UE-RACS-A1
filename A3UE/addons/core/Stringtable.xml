@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="A3-Antistasi">
-    <Package name="A3UE-Faction-Madness">
+    <Package name="A3UE-Your-Extender-Name">
         <Key ID="STR_A3UE_params_YourExtenderName_ParamName">
             <Original>This is the name of your parameter.</Original>
             <French>Add localization here</French>
