@@ -26,16 +26,16 @@
         vehicles = "";
     };
 
-    class addons_3cbf : addons_base
-    {
-        addons[] = {};
-        weapons = "";
-        vehicles = "";
-    };
+    // class addons_3cbf : addons_base
+    // {
+    //     addons[] = {};
+    //     weapons = "";
+    //     vehicles = "";
+    // };
 
-    class addons_3cbbaf : addons_base
-    {
-        addons[] = {};
-        weapons = "";
-        vehicles = "";
-    };
+    // class addons_3cbbaf : addons_base
+    // {
+    //     addons[] = {};
+    //     weapons = "";
+    //     vehicles = "";
+    // };
