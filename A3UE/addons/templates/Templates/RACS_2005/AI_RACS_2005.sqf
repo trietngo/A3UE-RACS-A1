@@ -475,23 +475,28 @@ _militaryLoadoutData set ["sidearms", [
 ///////////////////////////////
 
 private _policeLoadoutData = _loadoutData call _fnc_copyLoadoutData; 
-_policeLoadoutData set ["uniforms", ["U_B_GEN_Soldier_F", "U_B_GEN_Commander_F"]];
+_policeLoadoutData set ["uniforms", ["PRACS_Police_Uniform"]];
 _policeLoadoutData set ["vests", ["V_TacVest_blk_POLICE"]];
-private _helmets = ["H_Cap_police"];
+private _helmets = ["PRACS_Police_Cap"];
 if (_hasLawsOfWar) then {
     _helmets pushBack "H_PASGT_basic_blue_F";
 };
 _policeLoadoutData set ["helmets", _helmets];
 
-_policeLoadoutData set ["SMGs", [
-["SMG_01_F", "", "acc_flashlight_smg_01", "optic_Holosight", [], [], ""],
-["SMG_01_F", "", "acc_flashlight_smg_01", "optic_Aco_smg", [], [], ""],
-["SMG_03C_TR_black", "", "acc_flashlight", "optic_Holosight_blk_F", [], [], ""],
-["SMG_03C_TR_black", "", "acc_flashlight", "optic_Aco_smg", [], [], ""],
-["SMG_02_F", "", "acc_flashlight", "optic_Holosight_blk_F", [], [], ""],
-["SMG_02_F", "", "acc_flashlight", "optic_Aco_smg", [], [], ""]
+// _policeLoadoutData set ["SMGs", [
+// ["SMG_01_F", "", "acc_flashlight_smg_01", "optic_Holosight", [], [], ""],
+// ["SMG_01_F", "", "acc_flashlight_smg_01", "optic_Aco_smg", [], [], ""],
+// ["SMG_03C_TR_black", "", "acc_flashlight", "optic_Holosight_blk_F", [], [], ""],
+// ["SMG_03C_TR_black", "", "acc_flashlight", "optic_Aco_smg", [], [], ""],
+// ["SMG_02_F", "", "acc_flashlight", "optic_Holosight_blk_F", [], [], ""],
+// ["SMG_02_F", "", "acc_flashlight", "optic_Aco_smg", [], [], ""]
+// ]];
+
+_policeLoadoutData set ["rifles", [
+["UK3CB_M16A2", "", "", "", [], [], ""]
 ]];
-_policeLoadoutData set ["sidearms", ["hgun_Rook40_F"]];
+
+_policeLoadoutData set ["sidearms", ["rhsusf_weap_m1911a1"]];
 
 ////////////////////////////////
 //    Militia Loadout Data    //
@@ -939,7 +944,8 @@ private _policeTemplate = {
     ["uniforms"] call _fnc_setUniform;
 
 
-    ["SMGs"] call _fnc_setPrimary;
+    // ["SMGs"] call _fnc_setPrimary;
+    ["rifles"] call _fnc_setPrimary;
     ["primary", 3] call _fnc_addMagazines;
 
     ["sidearms"] call _fnc_setHandgun;
