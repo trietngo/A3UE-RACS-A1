@@ -77,11 +77,11 @@ class Templates
 
     class RACS_2005 : RHS_Base
     {
-        basepath = QPATHTOFOLDER(Templates\RACS_2005); //the path to the folder the template is located in, this translates to "\x\A3AE\addons\templates\Templates\Vanilla"
+        basepath = QPATHTOFOLDER(Templates\RACS_2007); //the path to the folder the template is located in, this translates to "\x\A3AE\addons\templates\Templates\Vanilla"
         side = "Occ"; // Inv, Occ, Reb, Riv, Civ
-        flagTexture = QPATHTOFOLDER(Templates\Vanilla\flag_aaf_torn_co.paa); // Path to an icon to be displayed in the select menu.
-        name = "Royal Army Corps of Sahrani (2005)"; // Name shown in the select menu.
-        file = "AI_RACS_2005"; // The template file name - .sqf, that gets appended automatically.
+        flagTexture = QPATHTOFOLDER(Templates\RACS_2007\flag_racs.paa); // Path to an icon to be displayed in the select menu.
+        name = "Royal Army Corps of Sahrani (2007)"; // Name shown in the select menu.
+        file = "AI_RACS_2007"; // The template file name - .sqf, that gets appended automatically.
         maps[] = {}; // If this template should be prioritized on any maps (case sensitive to worldName)
         climate[] = {"arid", "temperate"}; // climate that the template can be selected on.
         description = "Royal Army Corps of Sahrani as seen in Arma 1"; // If this isn't included, no description will show (unless inherited from the base class.)

@@ -12,11 +12,11 @@ private _hasContact = "enoch" in A3A_enabledDLC;
 //   Side Information   //
 //////////////////////////
 
-["name", "Royal Army Corps of Sahrani (2005)"] call _fnc_saveToTemplate; 						//this line determines the faction name -- Example: ["name", "NATO"] - ENTER ONLY ONE OPTION
+["name", "Royal Army Corps of Sahrani (2007)"] call _fnc_saveToTemplate; 						//this line determines the faction name -- Example: ["name", "NATO"] - ENTER ONLY ONE OPTION
 ["spawnMarkerName", format [localize "STR_supportcorridor", "AAF"]] call _fnc_saveToTemplate; 			//this line determines the name tag for the "carrier" on the map -- Example: ["spawnMarkerName", "NATO support corridor"] - ENTER ONLY ONE OPTION. Format and localize function can be used for translation
 
 ["flag", "Flag_AAF_F"] call _fnc_saveToTemplate; 						//this line determines the flag -- Example: ["flag", "Flag_NATO_F"] - ENTER ONLY ONE OPTION
-["flagTexture", QPATHTOFOLDER(Templates\Vanilla\flag_aaf_torn_co.paa)] call _fnc_saveToTemplate; 				//this line determines the flag texture -- Example: ["flagTexture", "\A3\Data_F\Flags\Flag_NATO_CO.paa"] - ENTER ONLY ONE OPTION
+["flagTexture", QPATHTOFOLDER(Templates\RACS_2007\flag_racs.paa)] call _fnc_saveToTemplate; 				//this line determines the flag texture -- Example: ["flagTexture", "\A3\Data_F\Flags\Flag_NATO_CO.paa"] - ENTER ONLY ONE OPTION
 ["flagMarkerType", "my_extension_marker_aaf_remnants"] call _fnc_saveToTemplate; 			//this line determines the flag marker type -- Example: ["flagMarkerType", "flag_NATO"] - ENTER ONLY ONE OPTION
 
 //////////////////////////
@@ -24,7 +24,7 @@ private _hasContact = "enoch" in A3A_enabledDLC;
 //////////////////////////
 
 ["ammobox", "I_supplyCrate_F"] call _fnc_saveToTemplate; 	//Don't touch or you die a sad and lonely death!
-["surrenderCrate", "Box_IND_Wps_F"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
+["surrenderCrate", "Land_WoodenBox_F"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
 ["equipmentBox", "Box_AAF_Equip_F"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
 
 ["vehiclesBasic", ["I_Quadbike_01_F"]] call _fnc_saveToTemplate; 			//this line determines basic vehicles, the lightest kind available. -- Example: ["vehiclesBasic", ["B_Quadbike_01_F"]] -- Array, can contain multiple assets
@@ -492,6 +492,10 @@ _policeLoadoutData set ["helmets", _helmets];
 // ["SMG_02_F", "", "acc_flashlight", "optic_Aco_smg", [], [], ""]
 // ]];
 
+_policeLoadoutData set ["SMGs", [
+["UK3CB_Sten", "", "", "", [], [], ""]
+]];
+
 _policeLoadoutData set ["rifles", [
 ["UK3CB_M16A2", "", "", "", [], [], ""]
 ]];
@@ -944,7 +948,7 @@ private _policeTemplate = {
     ["uniforms"] call _fnc_setUniform;
 
 
-    // ["SMGs"] call _fnc_setPrimary;
+    ["SMGs"] call _fnc_setPrimary;
     ["rifles"] call _fnc_setPrimary;
     ["primary", 3] call _fnc_addMagazines;
 
