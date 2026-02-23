@@ -476,11 +476,11 @@ _militaryLoadoutData set ["sidearms", [
 
 private _policeLoadoutData = _loadoutData call _fnc_copyLoadoutData; 
 _policeLoadoutData set ["uniforms", ["PRACS_Police_Uniform"]];
-_policeLoadoutData set ["vests", ["V_TacVest_blk_POLICE"]];
+_policeLoadoutData set ["vests", ["PRACS_Police_Vest", "PRACS_holster_vest"]];
 private _helmets = ["PRACS_Police_Cap"];
-if (_hasLawsOfWar) then {
-    _helmets pushBack "H_PASGT_basic_blue_F";
-};
+// if (_hasLawsOfWar) then {
+//     _helmets pushBack "H_PASGT_basic_blue_F";
+// };
 _policeLoadoutData set ["helmets", _helmets];
 
 // _policeLoadoutData set ["SMGs", [
@@ -496,8 +496,16 @@ _policeLoadoutData set ["SMGs", [
 ["UK3CB_Sten", "", "", "", [], [], ""]
 ]];
 
+// Set loadout args
+/*
+_policeLoadoutData set ["weap class", [
+["config_name", "muzzle_attch", "side_mount", "optics", ["primary_magazine"], ["secondary_magazine"], "underbarrel_mount"]
+]]
+*/
+
 _policeLoadoutData set ["rifles", [
-["UK3CB_M16A2", "", "", "", [], [], ""]
+["rhs_weap_l1a1_wood", "rhsgref_acc_falMuzzle_l1a1", "", "rhsgref_acc_l1a1_l2a2", ["UK3CB_Bren_30Rnd_762x51_Magazine"], [], ""],
+["uk3cb_m1carbine", "", "", "", [], [], ""]
 ]];
 
 _policeLoadoutData set ["sidearms", ["rhsusf_weap_m1911a1"]];
@@ -948,8 +956,10 @@ private _policeTemplate = {
     ["uniforms"] call _fnc_setUniform;
 
 
-    ["SMGs"] call _fnc_setPrimary;
-    ["rifles"] call _fnc_setPrimary;
+    // ["SMGs"] call _fnc_setPrimary;
+    // ["rifles"] call _fnc_setPrimary;
+    [selectRandomWeighted ["SMGs", 1, "rifles", 1]] call _fnc_setPrimary;
+    // [["SMGs", "rifles"] call _fnc_fallback] call _fnc_setPrimary;
     ["primary", 3] call _fnc_addMagazines;
 
     ["sidearms"] call _fnc_setHandgun;
