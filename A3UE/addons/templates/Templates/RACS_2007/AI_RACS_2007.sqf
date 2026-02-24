@@ -492,20 +492,23 @@ _policeLoadoutData set ["helmets", _helmets];
 // ["SMG_02_F", "", "acc_flashlight", "optic_Aco_smg", [], [], ""]
 // ]];
 
-_policeLoadoutData set ["SMGs", [
-["UK3CB_Sten", "", "", "", [], [], ""]
-]];
-
 // Set loadout args
 /*
-_policeLoadoutData set ["weap class", [
+_loadoutData set ["weap_class", [
 ["config_name", "muzzle_attch", "side_mount", "optics", ["primary_magazine"], ["secondary_magazine"], "underbarrel_mount"]
 ]]
 */
 
+_policeLoadoutData set ["SMGs", [
+["UK3CB_Sten", "", "", "", [], [], ""],
+["rhs_weap_m3a1", "", "", "", [], [], ""],
+["uk3cb_thompson_m1a1", "", "", "", ["UK3CB_Thompson_30rnd_1143x23_M1911B_Magazine_G"], [], ""]
+]];
+
 _policeLoadoutData set ["rifles", [
-["rhs_weap_l1a1_wood", "rhsgref_acc_falMuzzle_l1a1", "", "rhsgref_acc_l1a1_l2a2", ["UK3CB_Bren_30Rnd_762x51_Magazine"], [], ""],
-["uk3cb_m1carbine", "", "", "", [], [], ""]
+["rhs_weap_l1a1_wood", "rhsgref_acc_falMuzzle_l1a1", "", "", [], [], ""],
+["uk3cb_m1carbine", "", "", "", [], [], ""],
+["uk3cb_enfield_no3", "", "", "", [], [], ""]
 ]];
 
 _policeLoadoutData set ["sidearms", ["rhsusf_weap_m1911a1"]];
@@ -958,8 +961,8 @@ private _policeTemplate = {
 
     // ["SMGs"] call _fnc_setPrimary;
     // ["rifles"] call _fnc_setPrimary;
-    [selectRandomWeighted ["SMGs", 1, "rifles", 1]] call _fnc_setPrimary;
-    // [["SMGs", "rifles"] call _fnc_fallback] call _fnc_setPrimary;
+    // [["SMGs", "rifles"] call _fnc_fallback] call _fnc_setPrimary; // doesn't work for some reason, use selectRandom instead
+    [selectRandom ["SMGs", "rifles"]] call _fnc_setPrimary;
     ["primary", 3] call _fnc_addMagazines;
 
     ["sidearms"] call _fnc_setHandgun;
