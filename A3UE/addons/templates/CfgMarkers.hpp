@@ -8,4 +8,12 @@ class CfgMarkers
 		icon = QPATHTOFOLDER(Pictures\Markers\marker_aaf_torn_co.paa);
 		texture = QPATHTOFOLDER(Pictures\Markers\marker_aaf_torn_co.paa);
 	};
+
+	// RACS flag
+	class racs_marker_flag : flag_NATO
+	{
+		name = "Royal Army Corps of Sahrani";
+		icon = QPATHTOFOLDER(Templates\RACS_2007\flag_racs.paa);
+		texture = QPATHTOFOLDER(Templates\RACS_2007\flag_racs.paa);
+	}
 };

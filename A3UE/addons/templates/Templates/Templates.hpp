@@ -77,6 +77,7 @@ class Templates
 
     class RACS_2005 : RHS_Base
     {
+        logo = QPATHTOFOLDER(Templates\RACS_2007\flag_racs.paa);
         basepath = QPATHTOFOLDER(Templates\RACS_2007); //the path to the folder the template is located in, this translates to "\x\A3AE\addons\templates\Templates\Vanilla"
         side = "Occ"; // Inv, Occ, Reb, Riv, Civ
         flagTexture = QPATHTOFOLDER(Templates\RACS_2007\flag_racs.paa); // Path to an icon to be displayed in the select menu.
