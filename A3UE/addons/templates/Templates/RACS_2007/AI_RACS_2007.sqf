@@ -193,13 +193,53 @@ _loadoutData set ["NVGs", ["NVGoggles_INDEP"]];						//this line determines NVGs
 _loadoutData set ["binoculars", ["Binocular"]];		//this line determines the binoculars
 _loadoutData set ["rangefinders", ["Rangefinder"]];
 
-_loadoutData set ["traitorUniforms", ["U_BG_Guerrilla_6_1"]];		//this line determines traitor uniforms for traitor mission
-_loadoutData set ["traitorVests", ["V_TacVest_oli", "V_TacVest_camo", "V_BandollierB_oli"]];			//this line determines traitor vesets for traitor mission
+_loadoutData set ["traitorUniforms", [
+    "UK3CB_PLM_B_U_Pants_Shirt_02"
+]];		//this line determines traitor uniforms for traitor mission
+
+_loadoutData set ["traitorVests", ["rhs_chicom_khk", "rhs_lifchik_NCO", "rhs_lifchik_light"]];			//this line determines traitor vesets for traitor mission
 _loadoutData set ["traitorHats", ["H_Cap_grn","H_Cap_oli"]];			//this line determines traitor headgear for traitor missions
 
-_loadoutData set ["officerUniforms", ["U_I_OfficerUniform"]];		//this line determines officer uniforms for assassination mission
-_loadoutData set ["officerVests", ["V_Rangemaster_belt"]];			//this line determines officer vesets for assassination mission
-_loadoutData set ["officerHats", ["H_MilCap_dgtl", "H_Beret_grn"]];	//this line determines officer headgear for assassination missions
+_loadoutData set ["officerUniforms", [
+
+    // General
+    "PRACS_1st_infantry_COL_Dress_uniform",
+    "PRACS_Sailor_GEN_Dress_uniform",
+    "PRACS_Airman_GEN_Dress_uniform",
+    "PRACS_M10_3MTN_COL_uniform",
+    "PRACS_M10_Arty_officer_uniform",
+    "PRACS_M10_Commando_uniform",
+    "PRACS_M10_RBDE_COL_uniform",
+    "PRACS_M10_Marine_COL_uniform"
+
+    // Colonel
+
+]];		//this line determines officer uniforms for assassination mission
+_loadoutData set ["officerVests", ["PRACS_holster_vest"]];			//this line determines officer vesets for assassination mission
+_loadoutData set ["officerHats", [
+    // Caps
+    "PRACS_Officer_Cap",
+    "PRACS_RSAF_Officer_Cap",
+    "PRACS_RSM_Officer_Cap",
+    "PRACS_RSN_Officer_Cap",
+    "PRACS_Police_Cap",
+
+    // Berets
+    "PRACS_1st_Infantry_beret",
+    "PRACS_para_beret",
+    "PRACS_3mtn_beret",
+    "PRACS_4th_armored_beret",
+    "PRACS_Commando_beret",
+    "PRACS_QSB_beret",
+    "PRACS_Recon_beret",
+    "PRACS_Royal_Fusilier_beret",
+    "PRACS_Royal_Marine_beret",
+    "PRACS_RSAF_beret",
+    "PRACS_RSAF_CSAR_beret",
+    "PRACS_navy_beret",
+    "PRACS_SNG_beret"
+
+]];	//this line determines officer headgear for assassination missions
 
 _loadoutData set ["uniforms", []];					//don't fill this line - this is only to set the variable
 _loadoutData set ["slUniforms", []];
@@ -558,6 +598,7 @@ _militiaLoadoutData set ["slRifles", [
     ["rhs_weap_l1a1_wood", "rhsgref_acc_falMuzzle_l1a1", "", "", [], [], ""],
     ["UK3CB_Sten", "", "", "", [], [], ""],
     ["uk3cb_m2carbine", "", "", "", ["UK3CB_M1_30Rnd_30Carbine_Magazine", "UK3CB_M1_30Rnd_30Carbine_Magazine", "UK3CB_M1_30Rnd_30Carbine_Magazine_RT"], [], ""],
+    ["uk3cb_m2a1_carbine", "", "", "", ["UK3CB_M1_30Rnd_30Carbine_Magazine", "UK3CB_M1_30Rnd_30Carbine_Magazine", "UK3CB_M1_30Rnd_30Carbine_Magazine_RT"], [], ""],
     ["rhs_weap_m3a1", "", "", "", [], [], ""]
     // ["arifle_Mk20_F", "", "acc_flashlight", "", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], [], ""],
     // ["arifle_Mk20_F", "", "acc_flashlight", "", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], [], ""],
@@ -628,7 +669,27 @@ _pilotLoadoutData set ["vests", ["PRACS_aircrew_vest"]];
 _pilotLoadoutData set ["helmets", ["PRACS_Attack_Heli_pilot_helmet"]];
 
 
+/////////////////////////////////
+//    Officer Loadout Data    //
+/////////////////////////////////
+private _officerLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 
+_officerLoadoutData set ["officerPrimary", [
+    ["UK3CB_Sten", "", "", "", [], [], ""],
+    ["UK3CB_M16_Carbine", "", "", "", [], [], ""],
+    ["UK3CB_M16A2", "", "", "", [], [], ""],
+    ["rhs_weap_m4_carryhandle", "", "", "", [], [], ""],
+    ["rhs_weap_m4a1_carryhandle", "", "", "", [], [], ""],
+    ["rhs_weap_m4_carryhandle_m203", "", "", "", [], [], ""],
+    ["rhs_weap_m4a1_carryhandle_m203", "", "", "", [], [], ""],
+    ["UK3CB_MP5A3", "", "", "", [], [], ""]
+]];
+
+_officerLoadoutData set ["sidearms", [
+    "rhsusf_weap_m1911a1",
+    "UK3CB_BHP",
+    "rhsusf_weap_m9"
+]];
 
 
 /////////////////////////////////
@@ -1121,7 +1182,7 @@ private _officerTemplate = {
     ["officerVests"] call _fnc_setVest;
     ["officerUniforms"] call _fnc_setUniform;
 
-    [["SMGs", "carbines"] call _fnc_fallback] call _fnc_setPrimary;
+    ["officerPrimary"] call _fnc_setPrimary;
     ["primary", 3] call _fnc_addMagazines;
     
     ["sidearms"] call _fnc_setHandgun;
@@ -1258,7 +1319,7 @@ private _unitTypes = [
 ["other", [["Crew", _crewTemplate, [], ["other"]]], _crewLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 ["other", [["Pilot", _crewTemplate, [], ["other"]]], _pilotLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 //The following lines are determining the loadout for the unit used in the "kill the official" mission
-["other", [["Official", _officerTemplate, [], ["other"]]], _militaryLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
+["other", [["Official", _officerTemplate, [], ["other"]]], _officerLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 //The following lines are determining the loadout for the AI used in the "kill the traitor" mission
 ["other", [["Traitor", _traitorTemplate, [], ["other"]]], _militiaLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 //The following lines are determining the loadout for the AI used in the "Invader Punishment" mission
